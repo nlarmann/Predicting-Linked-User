@@ -56,13 +56,14 @@ lr.fit(X_train, y_train)
 "### Input your data for the person. Please  reference the legend below"
 
 income = st.selectbox(label="What is the income level?",
-options=(1, 2, 3, 4, 5, 6, 7, 8,9))
+options=(1, 2, 3, 4, 5, 6, 7, 8, 9))
 
 education = st.selectbox(label="What is the highest level of education completed?",
 options=(1, 2, 3, 4, 5, 6, 7, 8))
 
 parent = st.selectbox(label="Are they a parent?",
-options=(1, 2))
+options = (1, 2))
+
 
 married = st.selectbox(label="Are they married?",
 options=(1, 2, 3, 4, 5, 6))
