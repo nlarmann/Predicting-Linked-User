@@ -85,7 +85,7 @@ st.write(f"For a person with income of {income}, education of {education}, paren
 
 # Print predicted class and probability
 st.write(f"The predicted class is: {predicted_class[0]}. (0 is not a user, 1 is a user)") # 0 = not a linkedin user, 1 = linkedin user
-st.write(f"The robability that this person is a LinkedIn user: {probs[0][1]}")
+st.write(f"The probability that this person is a LinkedIn user: {probs[0][1]}")
 
 #Create legend
 '#### Income:'
