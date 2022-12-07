@@ -114,7 +114,7 @@ st.write(f"The probability that this person is a LinkedIn user: {probs[0][1]}")
 '1:	Yes'
 '2: No'
 
-'#### Is the person a parent?'
+'#### What is the person marital status?'
 '1: Married'
 '2:	Living with a partner'
 '3:	Divorced'
