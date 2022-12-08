@@ -138,8 +138,7 @@ test_person = [income1, education1, parent1, married1, gender1, age]
 predicted_class = lr.predict([test_person])
 
 # Generate probability of positive class (=1)
-probs = round(lr.predict_proba([test_person]),2)
-
+probs = lr.predict_proba([test_person])
 
 st.write(f"For a person with income of {income}, education level of {education}, parent status of {parent}, marital status of {married}, gender {gender} and age {age}.")
 
