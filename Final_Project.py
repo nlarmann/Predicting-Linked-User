@@ -127,7 +127,8 @@ elif gender == 'Female':
 elif gender == 'Other':
     gender1 = 3
 
-age = st.slider("x")
+
+age = st.slider("Please select the age")
 
 
 # New data for features: Income, Education, Parent, Marital, Gender, and Age
