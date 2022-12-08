@@ -58,44 +58,80 @@ lr.fit(X_train, y_train)
 income = st.selectbox(label="What is the income level?",
 options=('<10,000','10,000 < 20,000','20,000 < 30,000','30,000 < 40,000','40,000 < 50,000','50,000 < 75,000','75,000 < 100,000','100,000 < 150,000', '>150,000'))
 if income == '<10,000':
-    income = 1
+    income1 = 1
 elif income == '10,000 < 20,000':
-    income = 2
+    income1 = 2
 elif income == '20,000 < 30,000':
-    income = 3
+    income1 = 3
 elif income == '30,000 < 40,000':
-    income = 4
+    income1 = 4
 elif income == '40,000 < 50,000':
-    income = 5
+    income1 = 5
 elif income == '50,000 < 75,000':
-    income = 6
+    income1 = 6
 elif income == '75,000 < 100,000':
-    income = 7
+    income1 = 7
 elif income == '100,000 < 150,000':
-    income = 8
+    income1 = 8
 elif income == '>150,000':
-    income = 9
-
+    income1 = 9
 
 
 education = st.selectbox(label="What is the highest level of education completed?",
-options=(1, 2, 3, 4, 5, 6, 7, 8))
+options=('Less than high school (Grades 1-8 or no formal schooling)','High school incomplete (Grades 9-11 or Grade 12 with NO diploma)', 'High school graduate (Grade 12 with diploma or GED certificate)','Some college, no degree (includes some community college)', 'Two-year associate degree from a college or university','Four-year college or university degree/Bachelors degree (e.g., BS, BA, AB)','Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)','Postgraduate or professional degree, including masters, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)'))
+if education == 'Less than high school (Grades 1-8 or no formal schooling)':
+    education1 = 1
+elif education == 'High school incomplete (Grades 9-11 or Grade 12 with NO diploma)':
+    education1 = 2
+elif education == 'High school graduate (Grade 12 with diploma or GED certificate)':
+    education1 = 3
+elif education == 'Some college, no degree (includes some community college)':
+    education1 = 4
+elif education == 'Two-year associate degree from a college or university':
+    education1 = 5
+elif education == 'Four-year college or university degree/Bachelors degree (e.g., BS, BA, AB)':
+    education1 = 6
+elif education == 'Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)':
+    education1 = 7
+elif education == 'Postgraduate or professional degree, including masters, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)':
+    education1 = 8
 
 parent = st.selectbox(label="Are they a parent?",
-options = (1, 2))
+options = ('Yes', "No"))
+if parent == 'Yes':
+    parent1 = 1
+elif parent == 'No':
+    parent1 = 2
 
-
-married = st.selectbox(label="Are they married?",
-options=(1, 2, 3, 4, 5, 6))
+married = st.selectbox(label="What is the marital status?",
+options=('Married','Living with a partner','Divorced','Separated','Widowed','Never been married'))
+if married == 'Married':
+    married1 = 1
+elif married == 'Living with a partner':
+    married1 = 2
+elif married == 'Divorced':
+    married1 = 3
+elif married == 'Separated':
+    married1 = 4
+elif married == 'Widowed':
+    married1 = 5
+elif married == 'Never been married':
+    married1 = 6
 
 gender = st.selectbox(label="What is their gender?",
-options=(1, 2, 3))
+options=('Male','Female','Other'))
+if gender == 'Male':
+    gender1 = 1
+elif gender == 'Female':
+    gender1 = 2
+elif gender == 'Other':
+    gender1 = 3
 
 age = st.slider("x")
 
 
 # New data for features: Income, Education, Parent, Marital, Gender, and Age
-test_person = [income, education, parent, married, gender, age]
+test_person = [income1, education1, parent1, married1, gender1, age]
 
 # Predict class, given input features
 predicted_class = lr.predict([test_person])
@@ -103,47 +139,8 @@ predicted_class = lr.predict([test_person])
 # Generate probability of positive class (=1)
 probs = lr.predict_proba([test_person])
 
-st.write(f"For a person with income of {income}, education of {education}, parent status of {parent}, marital status of {married}, gender {gender} and age {age}.")
+st.write(f"For a person with income of {income}, education level of {education}, parent status of {parent}, marital status of {married}, gender {gender} and age {age}.")
 
 # Print predicted class and probability
 st.write(f"The predicted class is: {predicted_class[0]}. (0 is not a user, 1 is a user)") # 0 = not a linkedin user, 1 = linkedin user
 st.write(f"The probability that this person is a LinkedIn user: {probs[0][1]}")
-
-#Create legend
-'#### Income:'
-'1: < 10,000'
-'2: 10,000 to < 20,000'
-'3: 20,000 to < 30,000,'
-'4: 30,000 to < 40,000'
-'5: 40,000 to < 50,000'
-'6: 50,000 to < 75,000'
-'7: 75,000 to < 100,000'
-'8: 100,000 to < 150,000'
-'9: above 150,000'
-
-'#### Highest level of education'
-'1: Less than high school (Grades 1-8 or no formal schooling)'
-'2: High school incomplete (Grades 9-11 or Grade 12 with NO diploma)'
-'3: High school graduate (Grade 12 with diploma or GED certificate)'
-'4: Some college, no degree (includes some community college)'
-'5: Two-year associate degree from a college or university'
-'6: Four-year college or university degree/Bachelors degree (e.g., BS, BA, AB)'
-'7: Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)'
-'8: Postgraduate or professional degree, including masters, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)'
-
-'#### Is the person a parent?'
-'1:	Yes'
-'2: No'
-
-'#### What is the person marital status?'
-'1: Married'
-'2:	Living with a partner'
-'3:	Divorced'
-'4:	Separated'
-'5:	Widowed'
-'6:	Never been married'
-
-'#### What is their gender?'
-'1: Male'
-'2: Female'
-'3: Other'
