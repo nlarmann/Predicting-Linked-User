@@ -52,8 +52,8 @@ lr = LogisticRegression(class_weight = 'balanced')
 # Fit algorithm to training data
 lr.fit(X_train, y_train)
 
-"## Predicting whether a person is a linkedin user"
-"### Input your data for the person. Please  reference the legend below"
+"## Predicting whether a person is a LinkedIn user."
+"### Input your data for the person."
 
 income = st.selectbox(label="What is the income level?",
 options=('<10,000','10,000 < 20,000','20,000 < 30,000','30,000 < 40,000','40,000 < 50,000','50,000 < 75,000','75,000 < 100,000','100,000 < 150,000', '>150,000'))
