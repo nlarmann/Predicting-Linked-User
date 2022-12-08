@@ -139,9 +139,10 @@ predicted_class = lr.predict([test_person])
 
 # Generate probability of positive class (=1)
 probs = lr.predict_proba([test_person])
+probs = round(probs,2)*100
 
 st.write(f"For a person with income of {income}, education level of {education}, parent status of {parent}, marital status of {married}, gender {gender} and age {age}.")
 
 # Print predicted class and probability
 st.write(f"The predicted class is: {predicted_class[0]}. (0 is not a user, 1 is a user)") # 0 = not a linkedin user, 1 = linkedin user
-st.write(f"The probability that this person is a LinkedIn user: {probs[0][1]}")
+st.write(f"The probability that this person is a LinkedIn user: {probs[0][1]}%")
