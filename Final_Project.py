@@ -56,7 +56,27 @@ lr.fit(X_train, y_train)
 "### Input your data for the person. Please  reference the legend below"
 
 income = st.selectbox(label="What is the income level?",
-options=(1, 2, 3, 4, 5, 6, 7, 8, 9))
+options=('<10,000','10,000 < 20,000','20,000 < 30,000','30,000 < 40,000','40,000 < 50,000','50,000 < 75,000','75,000 < 100,000','100,000 < 150,000', '>150,000'))
+if income == '<10,000':
+    income = 1
+elif income == '10,000 < 20,000':
+    income = 2
+elif income == '20,000 < 30,000':
+    income = 3
+elif income == '30,000 < 40,000':
+    income = 4
+elif income == '40,000 < 50,000':
+    income = 5
+elif income == '50,000 < 75,000':
+    income = 6
+elif income == '75,000 < 100,000':
+    income = 7
+elif income == '100,000 < 150,000':
+    income = 8
+elif income == '>150,000':
+    income = 9
+
+
 
 education = st.selectbox(label="What is the highest level of education completed?",
 options=(1, 2, 3, 4, 5, 6, 7, 8))
